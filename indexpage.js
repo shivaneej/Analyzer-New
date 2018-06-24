@@ -36,7 +36,7 @@ function LogIn() {
     var myDropdown = document.getElementById("cont-imp");
       if (myDropdown.classList.contains('show')) {
         myDropdown.classList.remove('show');
-      }
+      } 
   }
 
 }*/

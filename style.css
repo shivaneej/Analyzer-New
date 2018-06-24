@@ -3,7 +3,7 @@ body{
 
 }
 .background{
-background-image: url("Background.png");
+background-image: url("https://bucket.mlcdn.com/a/1192/1192164/images/c2d5854666475b1341b66505d48e56b98f36fa4b.png");
     /*TEMPORARY: background-repeat: no-repeat;*/
     background-size: cover;
     background-size: 100%;
@@ -284,6 +284,3 @@ section.mainPanel{
     width: 80%; /* Could be more or less, depending on screen size */
 
 }
-
-
-
