@@ -11,17 +11,67 @@
 	<!--navigation bar-->
 	<header><div class="navbar">
 		<ul>
-			<li><img src="AnalyzerPS.png" class="logo"></li> 
-			
-  			<li><a href="index.php?logged">Home</a></li>
+			<li><img src="https://bucket.mlcdn.com/a/1192/1192164/images/c9b0cfe3970c4a7ab4c0b3ac6ce5f57a0b55117b.png" class="logo"></li> 
+			<!--Continuous improvement-->
+  			<li><a href="index.html">Home</a></li>
   			<li><a href="admin.html">Settings</a></li>
-  			<!--logout-->
-  			<li style="float: right;"><a href="index.php?out"><i class="fa fa-user" aria-hidden="true"></i> Logout </a></li>
+  			<!--login-->
+  			<li style="float: right;"><a href="index.php?logout"><i class="fa fa-user" aria-hidden="true"></i> Logout </a></li>
 		</ul>
 	</div></header>
 
 	<section class="mainPanel" style="width: 100%;">
-		
+		<div class="top" style="display: inline; padding: 10px;">
+			<form>
+				<div class="acad-year text" style="padding: 5px; display: inline-block;">Academic Year  
+				<select name="academic_year_upload" class="dropdown-box" >
+ 					<option> --Select Academic Year-- </option>
+ 					<option value="2016-2017"> 2016-2017 </option>
+ 					<option value="2015-2016"> 2015-2016 </option>
+ 					<option value="2014-2015"> 2014-2015 </option> </select></div>
+				<div class="semester text" style="padding: 5px; display: inline-block;">Semester  
+ 				<select name="sem_upload" class="dropdown-box">
+ 					<option> --Select Semester-- </option>
+ 					<option value="odd"> Odd </option>
+ 					<option value="even"> Even </option> </select></div>
+			</form>
+		</div>
+
+			<div class="regular-result" align="center" style="width: 80%; margin: auto; height: auto; padding-top: 2%;">
+				<div class="secHeading"><font class="text" style="color: #08aeea;">Upload Results</font></div>
+				<div class="secMain" style="padding: 2%; margin: auto;" align="center">
+					<div class="instruction">
+						<div class="tooltip"><i class="fa fa-info-circle" aria-hidden="true" style="color: #08aeea;"></i>
+  							<span class="tooltiptext"> Some information regarding acceptable file formats. Think of some text!</span>
+						</div>
+						<font class="light">Please upload only .xlsx files.</font>
+					</div>
+					<div class="upload"><strong>F.E. </strong> <input class="files" type="file" name="fefileuploaded"></div>
+					<div class="upload"><strong>S.E. </strong> <input class="files" type="file" name="sefileuploaded"></div>
+					<div class="upload"><strong>T.E. </strong> <input class="files" type="file" name="tefileuploaded"></div>
+					<div class="upload"><strong>B.E. </strong> <input class="files" type="file" name="befileuploaded"></div>
+  			</div>
+		</div>	
+
+		<div class="kt-result" align="center" style="width: 80%; margin: auto; height: auto; padding-top: 2%;">
+				<div class="secHeading"><font class="text" style="color: #08aeea;">Upload KT Results</font></div>
+				<div class="secMain" style="padding: 2%; margin: auto;" align="center">
+					<div class="instruction">
+						<div class="tooltip"><i class="fa fa-info-circle" aria-hidden="true" style="color: #08aeea;"></i>
+  							<span class="tooltiptext"> Some information regarding acceptable file formats. Think of some text!</span>
+						</div>
+						<font class="light">Please upload only .xlsx files.</font>
+					</div>
+					<div class="upload"><strong>F.E. </strong> <input class="files" type="file" name="fefileuploaded"></div>
+					<div class="upload"><strong>S.E. </strong> <input class="files" type="file" name="sefileuploaded"></div>
+					<div class="upload"><strong>T.E. </strong> <input class="files" type="file" name="tefileuploaded"></div>
+					<div class="upload"><strong>B.E. </strong> <input class="files" type="file" name="befileuploaded"></div>
+  			</div>
+		</div>
+
+	<div class="upload" style="padding: 1%;">
+		<button class="confirm-button"> <b>Confirm</b> </button></a>
+	</div>
 	</section>
 
 <script src="indexpage.js" type="text/javascript"></script> 	

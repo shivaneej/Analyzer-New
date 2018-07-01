@@ -207,7 +207,7 @@ section.mainPanel{
     height: auto;
 
 }
-.upload-button:hover{
+.upload-button:hover, .confirm-button:hover{
     cursor: pointer;
     background-color: #08aeea;
     color: white;
@@ -283,4 +283,63 @@ section.mainPanel{
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 
+}
+.light{
+    font-family: sans-serif;
+    font-size: 12px;
+    color: #898989; 
+}
+.upload{
+    font-family: sans-serif;
+    padding: 2%;
+    color: #08aeea;
+}
+.confirm-button{
+    background-color: #ffffff;
+    color: #08aeea;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border:none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    display: block;
+    margin: auto;
+    height: auto;
+    width: 20%;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: none;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color:#2c3e50;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
