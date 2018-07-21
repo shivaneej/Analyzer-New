@@ -35,7 +35,7 @@ if(isset($_GET['loggedin'])||isset($_GET['logged'])){
 <body class="background">
 	<div class="navbar">
 		<ul>
-			<li><img src="AnalyzerPS.png" class="logo"></li> 
+			<li><img src="https://bucket.mlcdn.com/a/1192/1192164/images/c9b0cfe3970c4a7ab4c0b3ac6ce5f57a0b55117b.png" class="logo"></li> 
 			<!--Continuous improvement-->
   			<div class="dropdown"><li class="dropdown"><button class="dropbutton" onclick="contImp()">Continuous Improvement</button>
   			<!--dropdown for continuous improvement-->
