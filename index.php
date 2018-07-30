@@ -7,7 +7,7 @@ $password=$_POST['admin-pass'];
 if($username=='admin' && $password=='12345')
 {
 $_SESSION['admin-name']=$username;
-header('Location:admin.html');
+header('Location:admin.php');
 }
 else{
   require 'index.html';
@@ -52,7 +52,7 @@ if(isset($_GET['loggedin'])||isset($_GET['logged'])){
               		<p><input type="submit" name="batch" value="View" class="button"></p>
   				</form>
   			</div></li></div>
-  			 <li><a href="admin.html">Settings</a></li>
+  			 <li><a href="admin.php">Settings</a></li>
              <li style="float: right;"><a href="index.php?logout"><i class="fa fa-user" aria-hidden="true"></i> Logout </a></li>
 		</ul>
 	</div>
