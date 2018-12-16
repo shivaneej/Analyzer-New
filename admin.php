@@ -1,14 +1,27 @@
 <?php
 $servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $db='analyzerdb';
-    $conn = mysqli_connect($servername,$username,$password,$db);
+$username = 'root';
+$password = '';
+$db='analyzerdb';
+session_start();
+$conn = mysqli_connect($servername,$username,$password,$db);
     
-    if (!$conn) 
-        {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+if (!$conn) 
+{
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if(isset($_POST['logout']))
+{
+  session_start();
+  unset($_SESSION['admin-name']);
+  session_destroy();
+  header('Location:index.php');
+}
+if(!isset($_SESSION['admin-name']))
+{
+    echo '<script type="text/javascript">alert("Log in to continue"); window.location="index.php";</script>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,42 +38,17 @@ $servername = 'localhost';
         <ul>
             <li><img src="https://bucket.mlcdn.com/a/1192/1192164/images/c9b0cfe3970c4a7ab4c0b3ac6ce5f57a0b55117b.png" class="logo"></li> 
             <!--Continuous improvement-->
-            <li><a href="index.php?loggedin">Home</a></li>
-            <!--login-->
-            <li style="float: right;"><a href="index.php?logout"><i class="fa fa-user" aria-hidden="true"></i> Logout </a></li>
+            <li><a href="index.php">Home</a></li>
+             <li><a href="admin.php">Settings</a></li>
+             <li style="float: right;"><form action="login.php" method="post">
+                    <input type="submit" name="logout" value="Logout" class="logout">
+                </form></li>
         </ul>
     </div></header>
 
     <section class="mainPanel" style="width: 100%;">
-        <div id="change-password-modal" class="modal">
-            <div class="modal-content" style="max-width:500px">
-                <span onclick="document.getElementById('change-password-modal').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <br><br>
-                <form action="#" method="post">
-                    <p><input type="password" name="currentPass" placeholder="Enter Current Password" id="password-box" class="input-box" required></p>
-                    <p><input type="password" name="newPass" placeholder="Enter New Password" id="password-box" class="input-box" required></p>
-                    <p><input type="password" name="newPassConfirm" placeholder="Retype New Password" id="password-box" class="input-box" required></p>
-                    <p><input type="submit" name="changebutton" value="Change Password" class="button" style="padding-top: 10px; padding-bottom: 10px; "></p>
-                </form>
-            </div>
-        </div>
-    <div class="settings" align="center" style="width: 80%; margin: auto; height: auto;">
-        <div class="secHeading"><i class="fa fa-cog" aria-hidden="true"></i> <font class="text" style="color: #08aeea;">Settings</font></div>
-            <div class="secMain" style="padding: 10px;">
-                <p class="text" align="center">Username: 
-                <input id="change-name-box" type="text" name="change-username" placeholder="admin" disabled >
-                <button class="edit" id="changeName" onclick="javascript:change_username();"> <i class="fa fa-pencil" aria-hidden="true"></i> </button>
-                <button class="edit" id="saveName"> <i class="fa fa-check" aria-hidden="true"></i></button>
-                </p> 
-                <br>
-                <div class="changePassword" align="center">  
-                    <button class="button" id="change-password" onclick="javascript:showModal();">Change Password</button>
-                </div>
-            </div>
-        </div>
-
     <div class="upload">
-        <a href="upload.html" style="text-decoration: none;"><button class="upload-button"> Upload Files</button></a>
+        <a href="upload.php" style="text-decoration: none;"><button class="upload-button"> Upload Files</button></a>
     </div>
 
     <div class="history" style="transform: translateY(40%); width: 80%; margin: auto;" align="center">

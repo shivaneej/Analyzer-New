@@ -1,29 +1,4 @@
-<?php
-if(isset($_POST['loginbutton']))
-{
-session_start();
-$username=$_POST['admin-name'];
-$password=$_POST['admin-pass'];
-if($username=='admin' && $password=='12345')
-{
-$_SESSION['admin-name']=$username;
-header('Location:admin.php');
-}
-else{
-  require 'index.html';
- $message = "Username and/or Password incorrect.\\nTry again.";
-  echo "<script type='text/javascript'>alert('$message');</script>";
-}
-}
-if(isset($_GET['logout'])||isset($_GET['out'])){
-  session_start();
-  session_destroy();
-  require 'index.html';
-}
-
-if(isset($_GET['loggedin'])||isset($_GET['logged'])){
-	session_start();?>
-	<!DOCTYPE html> 
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 	<title>Analyzer</title>
@@ -52,8 +27,32 @@ if(isset($_GET['loggedin'])||isset($_GET['logged'])){
               		<p><input type="submit" name="batch" value="View" class="button"></p>
   				</form>
   			</div></li></div>
-  			 <li><a href="admin.php">Settings</a></li>
-             <li style="float: right;"><a href="index.php?logout"><i class="fa fa-user" aria-hidden="true"></i> Logout </a></li>
+  				<?php
+  				session_start();
+  				if(!isset($_SESSION['admin-name']))
+  				{
+  					echo '<div class="dropdown" style="float: right;"><li class="dropdown"><button class="dropbutton" onclick="LogIn()"><i class="fa fa-user" aria-hidden="true"></i>  Admin Login</button>
+  				<!--dropdown for login-->
+  			<div class="dropdown-content" id="login">
+  				<form class="login-form" style="width: 100%" method="post" action="login.php">
+  					<p><input type="text" name="admin-name" placeholder="Enter Username" id="username-box" class="input-box" required></p>
+  					<p><input type="password" name="admin-pass" placeholder="Enter Password" id="password-box" class="input-box" required></p>
+  					<p class="text" align="left" style="color: white;"><input type="checkbox" onclick="showPassword()"> Show Password</p>
+              		<p><input type="submit" name="loginbutton" value="Log In" class="button"></p>
+  				</form>
+  			</div></li></div>';
+  				}
+
+  				else
+  				{
+  					echo ' <li><a href="admin.php">Settings</a></li>
+             <li style="float: right;"><form action="login.php" method="post">
+  					<input type="submit" name="logout" value="Logout" class="logout">
+  				</form></li>';
+  				}
+  				?>
+
+  				
 		</ul>
 	</div>
 
@@ -163,6 +162,3 @@ if(isset($_GET['loggedin'])||isset($_GET['logged'])){
 <script src="indexpage.js" type="text/javascript"></script>    
 </body>
 </html>
-<?php
-}
-?> 
