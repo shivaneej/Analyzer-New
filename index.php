@@ -12,8 +12,8 @@
 		<ul>
 			<li><img src="https://bucket.mlcdn.com/a/1192/1192164/images/c9b0cfe3970c4a7ab4c0b3ac6ce5f57a0b55117b.png" class="logo"></li> 
 			<!--Continuous improvement-->
-  			<div class="dropdown"><li class="dropdown"><button class="dropbutton" onclick="contImp()">Continuous Improvement</button>
-  			<!--dropdown for continuous improvement-->
+  			<!--  <div class="dropdown"><li class="dropdown"><button class="dropbutton" onclick="contImp()">Continuous Improvement</button> -->
+  			<!--dropdown for continuous improvement
   			<div class="dropdown-content" id="cont-imp">
   				<form>
   					<p class="text" align="center"> Select batch to view their performance till date</p>
@@ -26,7 +26,7 @@
               		</select>
               		<p><input type="submit" name="batch" value="View" class="button"></p>
   				</form>
-  			</div></li></div>
+  			</div></li></div> -->
   				<?php
   				session_start();
   				if(!isset($_SESSION['admin-name']))
@@ -45,7 +45,7 @@
 
   				else
   				{
-  					echo ' <li><a href="admin.php">Settings</a></li>
+  					echo ' <li><a href="admin.php">Dashboard</a></li>
              <li style="float: right;"><form action="login.php" method="post">
   					<input type="submit" name="logout" value="Logout" class="logout">
   				</form></li>';

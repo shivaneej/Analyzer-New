@@ -31,7 +31,7 @@ if(!isset($_SESSION['admin-name']))
 			<li><img src="https://bucket.mlcdn.com/a/1192/1192164/images/c9b0cfe3970c4a7ab4c0b3ac6ce5f57a0b55117b.png" class="logo"></li> 
 			<!--Continuous improvement-->
   			<li><a href="index.php?logged">Home</a></li>
-  			<li><a href="admin.php">Settings</a></li>
+  			<li><a href="admin.php">Dashboard</a></li>
   			<!--login-->
   			<li style="float: right;"><form action="login.php" method="post">
                     <input type="submit" name="logout" value="Logout" class="logout">
