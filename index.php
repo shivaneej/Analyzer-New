@@ -11,22 +11,6 @@
 	<div class="navbar">
 		<ul>
 			<li><img src="https://bucket.mlcdn.com/a/1192/1192164/images/c9b0cfe3970c4a7ab4c0b3ac6ce5f57a0b55117b.png" class="logo"></li> 
-			<!--Continuous improvement-->
-  			<!--  <div class="dropdown"><li class="dropdown"><button class="dropbutton" onclick="contImp()">Continuous Improvement</button> -->
-  			<!--dropdown for continuous improvement
-  			<div class="dropdown-content" id="cont-imp">
-  				<form>
-  					<p class="text" align="center"> Select batch to view their performance till date</p>
-  					<select name="batch" align="center" class="dropdown-box">
-                	<option class="dropdown-option"> --Select Batch-- </option>
-                	<option value="14" class="dropdown-option"> 2014-2018 </option>
-                	<option value="15" class="dropdown-option"> 2015-2019 </option>
-                	<option value="16" class="dropdown-option"> 2016-2020 </option>
-                	<option value="17" class="dropdown-option"> 2017-2021 </option> 
-              		</select>
-              		<p><input type="submit" name="batch" value="View" class="button"></p>
-  				</form>
-  			</div></li></div> -->
   				<?php
   				session_start();
   				if(!isset($_SESSION['admin-name']))
@@ -58,7 +42,7 @@
 
 	<!--main-->
 	<div class="main">
-		<form>
+		<form action="result.php" method="post"> 
 			<div class="acad-year" style="padding: 5px;"><p class="text">Academic Year 
 				<select name="academic_year" class="dropdown-box" >
  					<option> --Select Academic Year-- </option>

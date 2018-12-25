@@ -2,37 +2,8 @@
 error_reporting(E_ERROR | E_PARSE);
 date_default_timezone_set("Asia/Calcutta");
 $target_dir = "uploads/";
-$filenames = array();
-$targetfiles = array();
-$uploadstatus=array();
-$filetypes=array();
-$datetime=array();
-$semselected =$_POST['sem_upload'];
-$acyearselected = $_POST['academic_year_upload']; 
-for ($x=0; $x <8 ; $x++) 
-{ 
-    $filenames[$x]=$_FILES['fileuploaded'.($x+1)]['name']; 
-    $targetfiles[$x]= $target_dir . basename($_FILES['fileuploaded'.($x+1)]['name']); 
-    $uploadstatus[$x]=1;
-    $filetypes[$x]=strtolower(pathinfo($targetfiles[($x)],PATHINFO_EXTENSION));
-}
 
-if(isset($_POST['submitfileup']))
-{
-    for ($x=0; $x <8 ; $x++)
-    {
-        if($filetypes[$x]!='csv')
-        {
-            $uploadstatus[$x]=0;
-        }
-        else
-        {
-            $uploadstatus[$x]=1;
-        }
-
-    }
-
-    $servername = 'localhost';
+ $servername = 'localhost';
     $username = 'root';
     $password = '';
     $db='analyzerdb';
@@ -43,30 +14,43 @@ if(isset($_POST['submitfileup']))
             die("Connection failed: " . mysqli_connect_error());
         }
 
-    for($x=0;$x<8;$x++)
-    {
-        if(file_exists($targetfiles[$x]))
+$total = count($_FILES['fileup']['name']);
+
+for($i=0; $i<$total; $i++)
+{
+
+    $filename=$_FILES['fileup']['name'][$i]; 
+    $targetfile=$target_dir.basename($_FILES['fileup']['name'][$i]); 
+    $uploadstatus=1;
+    $filetype=strtolower(pathinfo($targetfile,PATHINFO_EXTENSION));  
+    
+        if($filetype!='csv')
         {
-            $tablename =  basename($targetfiles[$x],".csv");
+            $uploadstatus=0;
+        }
+        else
+        {
+            $uploadstatus=1;
+        }
+
+     
+        if(file_exists($targetfile))
+        {
+            $tablename =  basename($targetfile,".csv");
             $sql = "DROP TABLE ".$tablename;
             mysqli_query($conn,$sql);
-            $sql = "DELETE FROM FILES_UPLOADED WHERE filename = '".$_FILES['fileuploaded'.($x+1)]['name']."'";
+            $sql = "DELETE FROM FILES_UPLOADED WHERE filename = '".$_FILES['fileup']['name'][$i]."'";
             mysqli_query($conn,$sql);
         }
-    }
-
-   
-
-
-    for ($x=0; $x <8 ; $x++)
-        {
-            if($uploadstatus[$x]==1) 
+       
+            if($uploadstatus==1) 
                 {
-                    if (move_uploaded_file($_FILES['fileuploaded'.($x+1)]['tmp_name'], $targetfiles[$x])) 
+                    if (move_uploaded_file($_FILES['fileup']['tmp_name'][$i],$targetfile)) 
                         {
-                            $tablename =  basename($targetfiles[$x],".csv");
-                            $datetime[$x]=date("Y/m/d h:i:sa");
-                            $file = fopen($targetfiles[$x], "r");
+                            
+                            $tablename =  basename($targetfile,".csv");
+                            $datetime=date("Y/m/d h:i:sa");
+                            $file = fopen($targetfile, "r");
                             $create = "CREATE TABLE ".$tablename." (";
                             $sql="";
                             $attr = fgetcsv($file);
@@ -78,7 +62,7 @@ if(isset($_POST['submitfileup']))
                             $sql = $create.$newsql.")"; 
                             if(mysqli_query($conn,$sql))
                                 {
-                                    
+                                   
                                 }
 
                             while(!feof($file))
@@ -100,23 +84,21 @@ if(isset($_POST['submitfileup']))
                             fclose($file);    
                         }
                 }
-        }                    
-
-
-    for($x=0;$x<8;$x++)
-        {
-            if($uploadstatus[$x]==1)   
+                          
+    
+            if($uploadstatus==1)   
                 {
-                    $sql = "INSERT INTO FILES_UPLOADED VALUES ('$filenames[$x]','$datetime[$x]');";
+                    $sql = "INSERT INTO FILES_UPLOADED VALUES ('$filename','$datetime');";
  
                     if(mysqli_query($conn,$sql))
                         {
                            
                         } 
                 }
-        }
+    
 
         
+
 }
 mysqli_close($conn);
 header("Location: admin.php");

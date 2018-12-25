@@ -43,7 +43,6 @@ if(!isset($_SESSION['admin-name']))
 		<div class="top" style="display: inline; padding: 10px;">
 			<form action="uploadfile.php" enctype="multipart/form-data" method="POST">
 		</div>
-
 			<div class="regular-result" align="center" style="width: 80%; margin: auto; height: auto; padding-top: 2%;">
 				<div class="secHeading"><font class="text" style="color: #08aeea;">Upload Results</font></div>
 				<div class="secMain" style="padding: 2%; margin: auto;" align="center">
@@ -52,39 +51,14 @@ if(!isset($_SESSION['admin-name']))
   							<span class="tooltiptext"> Save your excel files by clicking save as and choose the save as type to be CSV(Comma delimited)(*.csv)</span>
 						</div>
 						<font class="light">Please upload only .csv files.</font>
-					</div>
-				
-					<div class="upload"><strong>F.E. </strong> <input class="files" type="file" name="fileuploaded1"></div>
-					<div class="upload"><strong>S.E. </strong> <input class="files" type="file" name="fileuploaded2"></div>
-					<div class="upload"><strong>T.E. </strong> <input class="files" type="file" name="fileuploaded3"></div>
-					<div class="upload"><strong>B.E. </strong> <input class="files" type="file" name="fileuploaded4"></div>
-						
+					</div>				
+				<div class="upload"><input class="files" type="file" name="fileup[]" multiple></div>						
   			</div>
 		</div>	
-
-		<div class="kt-result" align="center" style="width: 80%; margin: auto; height: auto; padding-top: 2%;">
-				<div class="secHeading"><font class="text" style="color: #08aeea;">Upload KT Results</font></div>
-				<div class="secMain" style="padding: 2%; margin: auto;" align="center">
-					<div class="instruction">
-						<div class="tooltip"><i class="fa fa-info-circle" aria-hidden="true" style="color: #08aeea;"></i>
-  							<span class="tooltiptext"> Save your excel files by clicking save as and choose the save as type to be CSV(Comma delimited)(*.csv)</span>
-						</div>
-						<font class="light">Please upload only .csv files.</font>
-					</div>
-					
-						<div class="upload"><strong>F.E. </strong> <input class="files" type="file" name="fileuploaded5"></div>
-					<div class="upload"><strong>S.E. </strong> <input class="files" type="file" name="fileuploaded6"></div>
-					<div class="upload"><strong>T.E. </strong> <input class="files" type="file" name="fileuploaded7"></div>
-					<div class="upload"><strong>B.E. </strong> <input class="files" type="file" name="fileuploaded8"></div>
-					</div>
-					<input type="submit" name="submitfileup" value="Confirm" class="confirm-button" style="padding: 1%; margin-top: 2% ;width: 20% ">
-					<br>
-					</form>
-					
-  			
-		</div>
-
-	
+		<input type="submit" name="submitfileup" value="Confirm" class="confirm-button" style="padding: 1%; margin-top: 2% ;width: 20% ">
+			<br>
+			</form>				
+		</div>	
 	</section>
 
 <script src="indexpage.js" type="text/javascript"></script> 	
