@@ -15,6 +15,8 @@ An ongoing web based application which will show the result analysis as requeste
 
 Users can:
 * view the analysis of result semester wise or year wise.
+* view charts
+* download report
 
 Admin can:
 * upload and delete results
