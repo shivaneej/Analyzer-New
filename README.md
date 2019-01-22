@@ -15,8 +15,7 @@ Developed using :
 - HTML, CSS, JavaScript
 - PHP
 - MySql
-- [Google Charts API](https://developers.google.com/chart/) was used to display the charts 
-
+- [Google Charts API](https://developers.google.com/chart/) 
 
 
 Users can:
