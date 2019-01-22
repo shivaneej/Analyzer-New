@@ -1,4 +1,4 @@
-div align="center">
+<div align="center">
 	<h1>Analyzer</h1>
 	<img src="https://bucket.mlcdn.com/a/1192/1192164/images/c9b0cfe3970c4a7ab4c0b3ac6ce5f57a0b55117b.png">
 </div>
