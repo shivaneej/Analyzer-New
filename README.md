@@ -9,7 +9,12 @@ An ongoing web based application which will show the result analysis as requeste
 - subject toppers
 - percentage of students passed
 
-- Developed using HTML, CSS, JavaScript, PHP, MySql
+
+
+Developed using :
+- HTML, CSS, JavaScript
+- PHP
+- MySql
 - [Google Charts API](https://developers.google.com/chart/) was used to display the charts 
 
 
